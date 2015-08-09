@@ -1,1 +1,1 @@
-document.write("Это скрипт");
+document.write('Это скрипт');
