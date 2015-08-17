@@ -1,0 +1,122 @@
+*, html, body {
+    margin:0; padding:0
+}
+body
+{
+    font-family: Verdana, sans-serif;
+}
+
+#container {
+    width: 1000px;
+    height: 800px;
+    background-color: bisque;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid rgb(156,115,93);
+    -webkit-box-shadow: 0 0 20px 10px rgba(0,0,0,.35);
+    box-shadow: 0 0 20px 10px rgba(0,0,0,.35);
+}
+#gold{
+    height: 100px;
+    width: auto;
+    border: 1px solid red;
+    margin: 10px;
+}
+#gold_box
+{
+    height: 30px;
+    width: 200px;
+    border: 1px solid red;
+    background-color: yellow;
+    position: relative;
+}
+#resi
+{
+    height: 360px;
+    width: auto;
+    border: 1px solid red;
+    margin: 10px;
+}
+
+
+#leftmenu a {
+    text-decoration: none;
+    padding: 10;
+    border: 2px solid rgba(156,115,93,1.00);
+    text-align: center;
+    font-family: Verdana, Arial, sans;
+    color: blue;
+    background-color: #E4D3C1;
+    margin-top: 20px;
+    min-width: 100px;
+    min-height: 20px;
+    display: block;
+}
+#leftmenu a:hover {
+    text-decoration: none;
+    padding: 10;
+    border-left: 3px solid rgb(156,115,93);
+    border-right: 1px solid rgb(156,115,93);
+    border-bottom: 1px solid rgb(156,115,93);
+    border-top: 3px solid rgb(156,115,93);
+    text-align: center;
+    font-family: Verdana, Arial, sans;
+    color: blue;
+    background-color: #E4D3C1;
+    margin-top: 20px;
+    min-width: 100px;
+    min-height: 20px;
+    display: block;
+}
+
+.content{
+    padding: 20px;
+    margin-left: 202px;
+}
+h4 {
+    margin: 10px;
+    text-align: center;
+}
+h5 {
+    margin: 10;
+    text-align: center;
+    font-size: large;
+}
+.content p {
+    text-align: justify;
+    text-indent: 30px;
+}
+#foto   {
+    float: right;
+}
+
+.content .ilustr   {
+    margin: 10px;
+    text-align: center;
+}
+.content ul  {
+    margin: 10px;
+    list-style-image: url(img/list-img.gif);
+    padding-left: 30px;
+}
+.content ol {
+    padding-left: 30px;
+    margin-top: 10px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+.footer{
+    height: 50px;
+    clear: both;
+    text-align: center;
+    background-image: url(img/footertrava.gif);
+}
+.footer_text {
+    padding-top: 20px;
+}
+#valid {
+    position: relative;
+    top: -27px;
+    left: 450px;
+}
