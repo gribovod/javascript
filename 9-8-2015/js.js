@@ -1,21 +1,36 @@
-var gold = 0;
+var gold = 950;
+var dGold = 1;
+var maxGold = 970;
+var MesagaShow = true;
+
 function startGame()
 {
-    var goldTimer=setInterval("goldPlus()", 500);
+    document.getElementById("start_button").style.visibility = "hidden";
+    setInterval("goldPlus()", 500);
 }
 function goldPlus()
 {
-    gold+=1;
+    if (gold < maxGold)
+    {
+        MesagaShow = true;
+        dGold = 1;
+    }
+    if (gold == 970)
+    {
+        if (MesagaShow == true)
+        {
+            alert("Добыча золота приостановлена - хранилище переполнено! \n\n Нужно чего-то купить...");
+            MesagaShow = false;
+        }
+        dGold = 0;
+    }
+    gold += dGold;
+
+
+    document.getElementById("gold_box").style.width = gold + "px";
     console.log("Текущее значение gold - " + gold);
-    var div = document.getElementById("gold_box");
-    div.style.width=gold+"px";
-    var a = div.style.width;
-
-    console.log("Значение a - " + a);
-/*
-    var a = document.getElementById('gold').style.width;
-    a.toString();
-
-    document.getElementById('goldbox').offsetWidth = gold;
-*/
+}
+function pay()
+{
+    gold -= 50;
 }

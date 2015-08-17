@@ -25,11 +25,12 @@ body
 }
 #gold_box
 {
-    height: 30px;
-    width: 200px;
+    height: 60px;
+    width: 0px;
     border: 1px solid red;
     background-color: yellow;
     position: relative;
+    margin-left: 3px;
 }
 #resi
 {
