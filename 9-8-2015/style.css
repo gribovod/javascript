@@ -32,92 +32,41 @@ body
     position: relative;
     margin-left: 3px;
 }
-#resi
+#derevo, #pesok, #kamen
 {
-    height: 360px;
+    height: 100px;
     width: auto;
     border: 1px solid red;
     margin: 10px;
-}
-
-
-#leftmenu a {
-    text-decoration: none;
-    padding: 10;
-    border: 2px solid rgba(156,115,93,1.00);
-    text-align: center;
-    font-family: Verdana, Arial, sans;
-    color: blue;
-    background-color: #E4D3C1;
-    margin-top: 20px;
-    min-width: 100px;
-    min-height: 20px;
-    display: block;
-}
-#leftmenu a:hover {
-    text-decoration: none;
-    padding: 10;
-    border-left: 3px solid rgb(156,115,93);
-    border-right: 1px solid rgb(156,115,93);
-    border-bottom: 1px solid rgb(156,115,93);
-    border-top: 3px solid rgb(156,115,93);
-    text-align: center;
-    font-family: Verdana, Arial, sans;
-    color: blue;
-    background-color: #E4D3C1;
-    margin-top: 20px;
-    min-width: 100px;
-    min-height: 20px;
-    display: block;
-}
-
-.content{
-    padding: 20px;
-    margin-left: 202px;
-}
-h4 {
-    margin: 10px;
-    text-align: center;
-}
-h5 {
-    margin: 10;
-    text-align: center;
-    font-size: large;
-}
-.content p {
-    text-align: justify;
-    text-indent: 30px;
-}
-#foto   {
-    float: right;
-}
-
-.content .ilustr   {
-    margin: 10px;
-    text-align: center;
-}
-.content ul  {
-    margin: 10px;
-    list-style-image: url(img/list-img.gif);
-    padding-left: 30px;
-}
-.content ol {
-    padding-left: 30px;
-    margin-top: 10px;
-    margin-left: 30px;
-    margin-bottom: 10px;
-}
-.footer{
-    height: 50px;
-    clear: both;
-    text-align: center;
-    background-image: url(img/footertrava.gif);
-}
-.footer_text {
-    padding-top: 20px;
-}
-#valid {
     position: relative;
-    top: -27px;
-    left: 450px;
+}
+#d0
+{
+    position: absolute;
+    bottom: 5px;
+    height: 70px;
+    left:5px;
+    width: 40px;
+    border: 1px solid black;
+    background-color: green;
+}
+#d1
+{
+    position: absolute;
+    bottom: 5px;
+    height: 10px;
+    left:55px;
+    width: 40px;
+    border: 1px solid black;
+    background-color: green;
+}
+#d2
+{
+    position: absolute;
+    bottom: 5px;
+    height: 30px;
+    left:105px;
+    width: 40px;
+    border: 1px solid black;
+    background-color: green;
 }

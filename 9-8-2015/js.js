@@ -32,13 +32,14 @@ function goldPlus()
 }
 function pay()
 {
-    var ans = prompt("Выберите какой источник ресурса хотите купить: \n\n1. Дерево - 200 золота\n2. Камень - 500 золота\n3. Песок - 350 золота\n\n и введите цифру:");
+    var ans = prompt("Выберите какой источник ресурса хотите купить: \n\n1. Дерево - 200 золота\n2. Камень - 500 золота\n3. Песок - 350 золота\n\n и введите цифру:",1);
     switch (parseInt(ans))
     {
         case 1:
             if(gold > 200)
             {
                 gold -= 200;
+                derevoAdd();
             }
             else
             {
@@ -70,3 +71,21 @@ function pay()
     }
 
 }
+var derevo = 0;
+var derevoArr = [];
+var SummaFermDereva = 0;
+function derevoAdd()
+{
+    if (SummaFermDereva == 0) {
+        document.getElementById("derevo").innerHTML = "Всего дерева 0 \n <div id=\"d0\">70</div>";
+        SummaFermDereva++;
+    }
+    else
+    {
+        document.getElementById("derevo").innerHTML = "Всего дерева 0 \n <div id=\"d0\">70</div> <div id=\"d1\">10</div>";
+    }
+
+}
+
+/* CSS:"#d" + (SummaFermDereva + 1) + " {left:5px;",*/
+
