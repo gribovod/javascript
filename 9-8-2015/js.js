@@ -1,4 +1,4 @@
-var gold = 900;
+var gold = 9900;
 var dGold = 1;
 var maxGold = 970;
 var MesagaShow = true;
@@ -6,7 +6,7 @@ var MesagaShow = true;
 function startGame()
 {
     document.getElementById("start_button").style.visibility = "hidden"; //style.display=='none'
-    setInterval("goldPlus()", 200);
+    setInterval("goldPlus()", 100);
 }
 
 function goldPlus()
@@ -33,13 +33,13 @@ function goldPlus()
 }
 function pay()
 {
-    var ans = prompt("Выберите какой источник ресурса хотите купить: \n\n1. Дерево - 200 золота\n2. Камень - 500 золота\n3. Песок - 350 золота\n\n и введите цифру:",1);
+    var ans = prompt("Выберите какой источник ресурса хотите купить: \n\n1. Дерево - 400 золота\n2. Камень - 900 золота\n3. Песок - 700 золота\n\n и введите цифру:",1);
     switch (parseInt(ans))
     {
         case 1:
-            if(gold > 200)
+            if(gold > 400)
             {
-                gold -= 200;
+                gold -= 400;
                 derevoAdd();
             }
             else
@@ -48,9 +48,9 @@ function pay()
             }
             break;
         case 2:
-            if(gold > 500)
+            if(gold > 900)
             {
-                gold -= 500;
+                gold -= 900;
                 kamenAdd();
             }
             else
@@ -59,9 +59,9 @@ function pay()
             }
             break;
         case 3:
-            if(gold > 350)
+            if(gold > 700)
             {
-                gold -= 350;
+                gold -= 700;
                 pesokAdd();
             }
             else
@@ -127,9 +127,10 @@ function pesokAdd()
 setInterval("StartFerm()", 100);
 function StartFerm()
 {
+    var curHeight;
     for (var i in derevoArr)
     {
-        var curHeight = parseInt(document.getElementById(derevoArr[i]).style.height);
+        curHeight = parseInt(document.getElementById(derevoArr[i]).style.height);
         curHeight++;
         if(curHeight==70)
         {
@@ -141,7 +142,7 @@ function StartFerm()
     }
     for (var j in kamenArr)
     {
-        var curHeight = parseInt(document.getElementById(kamenArr[j]).style.height);
+        curHeight = parseInt(document.getElementById(kamenArr[j]).style.height);
         curHeight++;
         if(curHeight==70)
         {
@@ -151,9 +152,9 @@ function StartFerm()
         }
         document.getElementById(kamenArr[j]).style.height = curHeight+"px"
     }
-    for (var j in pesokArr)
+    for (var k in pesokArr)
     {
-        var curHeight = parseInt(document.getElementById(pesokArr[j]).style.height);
+        curHeight = parseInt(document.getElementById(pesokArr[k]).style.height);
         curHeight++;
         if(curHeight==70)
         {
@@ -161,11 +162,34 @@ function StartFerm()
             document.getElementById("vsegoPeska").innerHTML=pesok;
             curHeight=0;
         }
-        document.getElementById(pesokArr[j]).style.height = curHeight+"px"
+        document.getElementById(pesokArr[k]).style.height = curHeight+"px"
     }
 }
 
-
+var curLevelCastle = 0;
+function castleUp(){
+    if (curLevelCastle == 0 && derevo >= 600  && kamen >= 200 && pesok >= 400) {
+        curLevelCastle++;
+        derevo -= 600;
+        kamen -= 200;
+        pesok -= 400;
+        alert("Замок построен!")
+    } else if (curLevelCastle == 1 && derevo >= 500  && kamen >= 800 && pesok >= 300) {
+        curLevelCastle++;
+        derevo -= 500;
+        kamen -= 800;
+        pesok -= 300;
+        alert("Замок улучшен - уровень 1!")
+    } else if (curLevelCastle == 2 && derevo >= 400  && kamen >= 900 && pesok >= 700) {
+        curLevelCastle++;
+        derevo -= 400;
+        kamen -= 900;
+        pesok -= 700;
+        alert("Замок улучшен - уровень 2")
+    } else {
+        alert( 'Не хватает ресурсов!' );
+    }
+}
 
 
 

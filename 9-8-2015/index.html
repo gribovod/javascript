@@ -13,12 +13,17 @@
 </p>
     <div id="container">
         <div id="gold"><span id="gold_text">Сейчас в хранилище 0 золота</span>
-            <div id="gold_box"><br/><input id = "pay_button" name='button' type='button' value='Купить ферму...' onClick='pay()'></div>
+            <div id="gold_box"><br /><input id = "pay_button" name='button' type='button' value='Купить ферму...' onClick='pay()'></div>
         </div>
         <div id="derevo">Всего дерева:<sapan id="vsegoDereva">0</sapan><br /></div>
         <div id="kamen">Всего камня:<sapan id="vsegoKamnya">0</sapan><br /></div>
         <div id="pesok">Всего песка:<sapan id="vsegoPeska">0</sapan><br /></div>
-        <div id="zamok">zamok<input id = "buuuto_derevo" name='button' type='button' value='ферму...' onClick='StartFerm()'></div>
+        <div id="zamok">Для постройки замка необходимо:<br />
+            Дерево: 600<br />
+            Камень: 200<br />
+            Песок: 400<br />
+            <input id = "upCastle" name='button' type='button' value='Улучшить замок' onClick='castleUp()'>
+        </div>
     </div>
 </body>
 </html>
