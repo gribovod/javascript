@@ -50,28 +50,3 @@ body
     background-color: green;
 }
 
-#d0
-{
-    height: 70px;
-    left:5px;
-}
-#d1
-{
-    position: absolute;
-    bottom: 5px;
-    height: 10px;
-    left:55px;
-    width: 40px;
-    border: 1px solid black;
-    background-color: green;
-}
-#d2
-{
-    position: absolute;
-    bottom: 5px;
-    height: 30px;
-    left:105px;
-    width: 40px;
-    border: 1px solid black;
-    background-color: green;
-}

@@ -75,21 +75,9 @@ function pay()
 var derevo = 0;
 var derevoArr = [];
 var SummaFermDereva = 0;
-//var derevoHTML = "";
-//var currentID="";
+
 function derevoAdd()
 {
-    /* При таком способе добавления потм нельзя обратится к созданому
-
-    document.getElementById("derevo").innerHTML= derevoHTML + "<div id=\"d"+SummaFermDereva+"\"" +">0<\/div>";
-    currentID = "d" + SummaFermDereva;
-    document.getElementById(currentID).style.left = ((SummaFermDereva * 50) + 5) + "px";
-    derevoArr[SummaFermDereva] = currentID;
-    SummaFermDereva++;
-    derevoHTML = document.getElementById("derevo").innerHTML;
-    */
-
-    // пробуем через create
     var curID = "d" + SummaFermDereva;
     var curCSS = "left: " + ((SummaFermDereva * 50) + 5) + "px; height: 10px";
     var parElement =  document.getElementById("derevo");
@@ -97,57 +85,25 @@ function derevoAdd()
     parElement.appendChild(newDiv);
     derevoArr[SummaFermDereva] = curID;
     SummaFermDereva++;
-
-
 }
-//setInterval("StartFerm()", 2000);
+
+setInterval("StartFerm()", 500);
 function StartFerm()
 {
-
     for (var i in derevoArr)
     {
-        console.log("derevoArr - " + derevoArr[i]);
-        var a = parseInt(document.getElementById(derevoArr[i]).style.height);
-        a++;
-        document.getElementById(derevoArr[i]).style.height = a+"px"
-        console.log("a =" + a);
+        var curHeight = parseInt(document.getElementById(derevoArr[i]).style.height);
+        curHeight++;
+        if(curHeight==70)
+        {
+            derevo +=70;
+            document.getElementById("vsegoDereva").innerHTML=derevo;
+            curHeight=0;
+        }
+        document.getElementById(derevoArr[i]).style.height = curHeight+"px"
     }
-
-/*
-     var j = 0;
-
-    for (var i in derevoArr)
-    {
-
-        Высота елемента с ид = " + derevoArr[i] + " (" + a + ")");
-    }
-*/
 }
 
-
-/*
-function startFerm()
-{
-
-
- currentHeight = document.getElementById(derevoArr[i]).style.height;
- currentHeight++;
-
- document.getElementById(derevoArr[i]).style.height = currentHeight;
-
-
-
- console.log(derevoArr[j]);
- j++
- console.log("Изменяем ИД"+ i);
-
-
- console.log("Добавляем ферму..." + chtoto);
-
-
-
-}
-*/
 // http://ahinea.com/2006/04/14/javascript-dom-create
 function create( name, attributes ) {
     var el = document.createElement( name );
