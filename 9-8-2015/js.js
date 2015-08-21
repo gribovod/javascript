@@ -1,4 +1,4 @@
-var gold = 1950;
+var gold = 900;
 var dGold = 1;
 var maxGold = 970;
 var MesagaShow = true;
@@ -6,7 +6,7 @@ var MesagaShow = true;
 function startGame()
 {
     document.getElementById("start_button").style.visibility = "hidden"; //style.display=='none'
-    setInterval("goldPlus()", 500);
+    setInterval("goldPlus()", 200);
 }
 
 function goldPlus()
@@ -51,6 +51,7 @@ function pay()
             if(gold > 500)
             {
                 gold -= 500;
+                kamenAdd();
             }
             else
             {
@@ -61,6 +62,7 @@ function pay()
             if(gold > 350)
             {
                 gold -= 350;
+                pesokAdd();
             }
             else
             {
@@ -72,6 +74,7 @@ function pay()
     }
 
 }
+/////////////////////////////////////// ДЕРЕВО
 var derevo = 0;
 var derevoArr = [];
 var SummaFermDereva = 0;
@@ -87,7 +90,41 @@ function derevoAdd()
     SummaFermDereva++;
 }
 
-setInterval("StartFerm()", 500);
+///////////////////////////////////////  КАМЕНЬ
+
+var kamen = 0;
+var kamenArr = [];
+var SummaFermKamen = 0;
+
+function kamenAdd()
+{
+    var curID = "k" + SummaFermKamen;
+    var curCSS = "left: " + ((SummaFermKamen * 50) + 5) + "px; height: 10px";
+    var parElement =  document.getElementById("kamen");
+    var newDiv = create( "div", { id: curID, style: curCSS});
+    parElement.appendChild(newDiv);
+    kamenArr[SummaFermKamen] = curID;
+    SummaFermKamen++;
+}
+
+///////////////////////////////////////  ПЕСОК
+
+var pesok = 0;
+var pesokArr = [];
+var SummaFermPesok = 0;
+
+function pesokAdd()
+{
+    var curID = "p" + SummaFermPesok;
+    var curCSS = "left: " + ((SummaFermPesok * 50) + 5) + "px; height: 10px";
+    var parElement =  document.getElementById("pesok");
+    var newDiv = create( "div", { id: curID, style: curCSS});
+    parElement.appendChild(newDiv);
+    pesokArr[SummaFermPesok] = curID;
+    SummaFermPesok++;
+}
+//////////////////////////////////////// ТАЙМЕР РОСТА ФЕРМ
+setInterval("StartFerm()", 100);
 function StartFerm()
 {
     for (var i in derevoArr)
@@ -102,7 +139,52 @@ function StartFerm()
         }
         document.getElementById(derevoArr[i]).style.height = curHeight+"px"
     }
+    for (var j in kamenArr)
+    {
+        var curHeight = parseInt(document.getElementById(kamenArr[j]).style.height);
+        curHeight++;
+        if(curHeight==70)
+        {
+            kamen +=70;
+            document.getElementById("vsegoKamnya").innerHTML=kamen;
+            curHeight=0;
+        }
+        document.getElementById(kamenArr[j]).style.height = curHeight+"px"
+    }
+    for (var j in pesokArr)
+    {
+        var curHeight = parseInt(document.getElementById(pesokArr[j]).style.height);
+        curHeight++;
+        if(curHeight==70)
+        {
+            pesok +=70;
+            document.getElementById("vsegoPeska").innerHTML=pesok;
+            curHeight=0;
+        }
+        document.getElementById(pesokArr[j]).style.height = curHeight+"px"
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // http://ahinea.com/2006/04/14/javascript-dom-create
 function create( name, attributes ) {
