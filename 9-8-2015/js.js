@@ -1,3 +1,4 @@
+var GameIsLoad = false;
 var DerevoFarmCost = 40;
 var KamenFarmCost = 90;
 var PesokFarmCost = 70;
@@ -6,7 +7,7 @@ var SpedUpFarm = 100;
 var PribavkaResursov = 10;
 var VsegoPotrachenoZolota = 0;
 var VsegoPotrachenoVremeni = 0;
-var gold = 900;
+var gold = 0;
 var dGold = 1;
 var maxGold = 970;
 
@@ -17,13 +18,12 @@ function startGame()
     document.getElementById("start_button").style.visibility = "hidden"; //style.display=='none'
     setInterval("goldPlus()", SpedUpGold);
     var timer = setInterval("Timer()", 1000);
+    GameIsLoad = true;
 }
 function Timer(){
     VsegoPotrachenoVremeni++;
     document.getElementById("vremya").innerHTML = VsegoPotrachenoVremeni;
 }
-
-
 function goldPlus()
 {
     if (gold < maxGold)
@@ -43,51 +43,6 @@ function goldPlus()
     gold += dGold;
     document.getElementById("gold_box").style.width = gold + "px";
     document.getElementById("gold_text").innerHTML = "Сейчас в закромах " + gold + " золота";
-
-   // console.log("Текущее значение gold - " + gold);
-}
-function pay()
-{
-    var ans = prompt("Выберите какой источник ресурса хотите купить: \n\n1. Дерево - "+DerevoFarmCost+" золота\n2. Камень - "+KamenFarmCost+" золота\n3. Песок - "+PesokFarmCost+" золота\n\n и введите цифру:",1);
-    switch (parseInt(ans))
-    {
-        case 1:
-            if(gold > DerevoFarmCost)
-            {
-                gold -= DerevoFarmCost;
-                derevoAdd();
-            }
-            else
-            {
-                alert("Мало золота!")
-            }
-            break;
-        case 2:
-            if(gold > KamenFarmCost)
-            {
-                gold -= KamenFarmCost;
-                kamenAdd();
-            }
-            else
-            {
-                alert("Мало золота!")
-            }
-            break;
-        case 3:
-            if(gold > PesokFarmCost)
-            {
-                gold -= PesokFarmCost;
-                pesokAdd();
-            }
-            else
-            {
-                alert("Мало золота!")
-            }
-            break;
-        default:
-            alert("Я не понял что Вы ввели! Просто введите цифру и все!!!")
-    }
-
 }
 /////////////////////////////////////// ДЕРЕВО
 var derevo = 0;
@@ -96,6 +51,7 @@ var SummaFermDereva = 0;
 
 function derevoAdd()
 {
+    if(GameIsLoad==false){startGame();}
     if(gold > DerevoFarmCost)
     {
         gold -= DerevoFarmCost;
@@ -123,10 +79,11 @@ var SummaFermKamen = 0;
 
 function kamenAdd()
 {
+    if(GameIsLoad==false){startGame();}
     if(gold > KamenFarmCost)
     {
         gold -= KamenFarmCost;
-        VsegoPotrachenoZolota+=DerevoFarmCost;
+        VsegoPotrachenoZolota+=KamenFarmCost;
         document.getElementById("bablo").innerHTML = VsegoPotrachenoZolota;
         var curID = "k" + SummaFermKamen;
         var curCSS = "left: " + ((SummaFermKamen * 50) + 5) + "px; height: 10px";
@@ -150,10 +107,11 @@ var SummaFermPesok = 0;
 
 function pesokAdd()
 {
+    if(GameIsLoad==false){startGame();}
     if(gold > PesokFarmCost)
     {
         gold -= PesokFarmCost;
-        VsegoPotrachenoZolota+=DerevoFarmCost;
+        VsegoPotrachenoZolota+=PesokFarmCost;
         document.getElementById("bablo").innerHTML = VsegoPotrachenoZolota;
         var curID = "p" + SummaFermPesok;
         var curCSS = "left: " + ((SummaFermPesok * 50) + 5) + "px; height: 10px";
@@ -183,7 +141,7 @@ function StartFerm()
             document.getElementById("vsegoDereva").innerHTML=derevo;
             curHeight=0;
         }
-        document.getElementById(derevoArr[i]).style.height = curHeight+"px"
+        document.getElementById(derevoArr[i]).style.height = curHeight+"px";
     }
     for (var j in kamenArr)
     {
@@ -195,7 +153,7 @@ function StartFerm()
             document.getElementById("vsegoKamnya").innerHTML=kamen;
             curHeight=0;
         }
-        document.getElementById(kamenArr[j]).style.height = curHeight+"px"
+        document.getElementById(kamenArr[j]).style.height = curHeight+"px";
     }
     for (var k in pesokArr)
     {
@@ -207,7 +165,7 @@ function StartFerm()
             document.getElementById("vsegoPeska").innerHTML=pesok;
             curHeight=0;
         }
-        document.getElementById(pesokArr[k]).style.height = curHeight+"px"
+        document.getElementById(pesokArr[k]).style.height = curHeight+"px";
     }
 }
 
@@ -218,49 +176,35 @@ function castleUp(){
         derevo -= 600;
         kamen -= 200;
         pesok -= 400;
-        alert("Замок построен!")
+        fotka.setAttribute("src","castle1.jpg");
+        alert("Замок построен!");
     } else if (curLevelCastle == 1 && derevo >= 500  && kamen >= 800 && pesok >= 300) {
         curLevelCastle++;
         derevo -= 500;
         kamen -= 800;
         pesok -= 300;
-        alert("Замок улучшен - уровень 1!")
+        fotka.setAttribute("src","castle2.jpg");
+        alert("Замок улучшен - уровень 1!");
     } else if (curLevelCastle == 2 && derevo >= 400  && kamen >= 900 && pesok >= 700) {
         curLevelCastle++;
         derevo -= 400;
         kamen -= 900;
         pesok -= 700;
+        fotka.setAttribute("src","castle3.jpg");
         alert("Замок улучшен - уровень 2 - ИГРА ОКОНЧЕНА!\n\n Поздраляю!!!");
         alert("Вы потратили: "+VsegoPotrachenoZolota+" золота, игра длилась: "+VsegoPotrachenoVremeni+" секунд.");
         if (derevo == 0 && kamen == 0 && pesok == 0) {
             alert("Поздраляю - ВЫ ВЫИГРАЛИ!!! Лучше сиргать невозможно!!!");
-            window.location.reload();
+            setTimeout("window.location.reload()", 5000);
         }else{
             alert("К сожалению, это не лучший результат");
-            window.location.reload();
+            setTimeout("window.location.reload()", 5000);
         }
 
     } else {
         alert( 'Не хватает ресурсов!' );
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

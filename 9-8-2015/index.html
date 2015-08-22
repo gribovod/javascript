@@ -10,33 +10,47 @@
 <br/>
 <p>
     Всего потрачено времени: <span id="vremya">0</span> секунд; <br />
-    Всего потрачено золота: <span id="bablo">0</span> едениц;<br />
-    <b> ЦЕЛЬ ИГРЫ: Постройте и улучшете замак до 2-го уровня потратив минимум времени и золота.</b>
+    Всего потрачено золота: <span id="bablo">0</span> единиц;<br />
+    <b> ЦЕЛЬ ИГРЫ: Постройте и улучшите замок до 2-го уровня потратив минимум времени и золота.</b>
 </p>
 <p align="center">
     <input id = "start_button" name='button' type='button' value='НАЧАТЬ ИГРУ' onClick='startGame()'>
 </p>
     <div id="container">
         <div id="gold"><span id="gold_text">Сейчас в хранилище 0 золота</span>
-            <div id="gold_box"><br /><input id = "pay_button" name='button' type='button' value='Купить ферму...' onClick='pay()'></div>
+            <div id="gold_box"><br /></div>
         </div>
-        <div id="derevo">Всего дерева:<span id="vsegoDereva">0</span><input id = "addDerevo" name='button' type='button' value='Купить ферму' onClick='derevoAdd()'><br /></div>
-        <div id="kamen">Всего камня:<span id="vsegoKamnya">0</span><input id = "addKamen" name='button' type='button' value='Купить ферму' onClick='kamenAdd()'><br /></div>
-        <div id="pesok">Всего песка:<span id="vsegoPeska">0</span><input id = "addPesok" name='button' type='button' value='Купить ферму' onClick='pesokAdd()'><br /></div>
+        <div id="derevo">Всего дерева:<span id="vsegoDereva">0</span>
+            <input id = "addDerevo" name='button' type='button' value='Увеличить производство' onClick='derevoAdd()'>
+             за <span id="derevoCost">40</span> золота<br />
+        </div>
+        <div id="kamen">Всего камня:<span id="vsegoKamnya">0</span>
+            <input id = "addKamen" name='button' type='button' value='Увеличить производство' onClick='kamenAdd()'>
+             за <span id="kamenCost">90</span> золота<br />
+        </div>
+        <div id="pesok">Всего песка:<span id="vsegoPeska">0</span>
+            <input id = "addPesok" name='button' type='button' value='Увеличить производство' onClick='pesokAdd()'>
+             за <span id="pesokCost">70</span> золота<br />
+        </div>
         <div id="zamok">
             Для постройки замка необходимо:<br />
             Дерево: 600<br />
             Камень: 200<br />
             Песок:  400<br /><br />
-            Для постройки замка необходимо:<br />
+            Для 1-го улучшения необходимо:<br />
             Дерево: 500<br />
             Камень: 800<br />
             Песок:  300<br /><br />
-            Для постройки замка необходимо:<br />
+            Для 2-го улучшения необходимо:<br />
             Дерево: 400<br />
             Камень: 900<br />
             Песок:  700<br /><br />
             <input id = "upCastle" name='button' type='button' value='Улучшить замок' onClick='castleUp()'>
+            <div id="castle">
+                <p  align="center">
+                    ВАШ ЗАМОК:<br /><img id="fotka" src="castle0.jpg" height="300">
+                </p>
+            </div>
         </div>
     </div>
 </body>

@@ -75,3 +75,12 @@ body
     margin: 10px;
     position: relative;
 }
+#castle{
+    height: 320px;
+    width: 660px;
+    border: 1px solid red;
+    margin: 10px;
+    position: relative;
+    left: 300px;
+    top: -310px;
+}
