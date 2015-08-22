@@ -8,6 +8,11 @@
 </head>
 <body>
 <br/>
+<p>
+    Всего потрачено времени: <span id="vremya">0</span> секунд; <br />
+    Всего потрачено золота: <span id="bablo">0</span> едениц;<br />
+    <b> ЦЕЛЬ ИГРЫ: Постройте и улучшете замак до 2-го уровня потратив минимум времени и золота.</b>
+</p>
 <p align="center">
     <input id = "start_button" name='button' type='button' value='НАЧАТЬ ИГРУ' onClick='startGame()'>
 </p>
@@ -15,13 +20,22 @@
         <div id="gold"><span id="gold_text">Сейчас в хранилище 0 золота</span>
             <div id="gold_box"><br /><input id = "pay_button" name='button' type='button' value='Купить ферму...' onClick='pay()'></div>
         </div>
-        <div id="derevo">Всего дерева:<sapan id="vsegoDereva">0</sapan><br /></div>
-        <div id="kamen">Всего камня:<sapan id="vsegoKamnya">0</sapan><br /></div>
-        <div id="pesok">Всего песка:<sapan id="vsegoPeska">0</sapan><br /></div>
-        <div id="zamok">Для постройки замка необходимо:<br />
+        <div id="derevo">Всего дерева:<span id="vsegoDereva">0</span><input id = "addDerevo" name='button' type='button' value='Купить ферму' onClick='derevoAdd()'><br /></div>
+        <div id="kamen">Всего камня:<span id="vsegoKamnya">0</span><input id = "addKamen" name='button' type='button' value='Купить ферму' onClick='kamenAdd()'><br /></div>
+        <div id="pesok">Всего песка:<span id="vsegoPeska">0</span><input id = "addPesok" name='button' type='button' value='Купить ферму' onClick='pesokAdd()'><br /></div>
+        <div id="zamok">
+            Для постройки замка необходимо:<br />
             Дерево: 600<br />
             Камень: 200<br />
-            Песок: 400<br />
+            Песок:  400<br /><br />
+            Для постройки замка необходимо:<br />
+            Дерево: 500<br />
+            Камень: 800<br />
+            Песок:  300<br /><br />
+            Для постройки замка необходимо:<br />
+            Дерево: 400<br />
+            Камень: 900<br />
+            Песок:  700<br /><br />
             <input id = "upCastle" name='button' type='button' value='Улучшить замок' onClick='castleUp()'>
         </div>
     </div>
